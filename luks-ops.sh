@@ -38,6 +38,7 @@ echo -e "$green \t\tBeta Version $normal"
 echo -e "$yellow =========================================================$none"
 }
 
+
 # Check if the required applications are installed
 type -P dmsetup &>/dev/null || { echo -e "$red dmestup is not installed. Damn! $none" >> "$LOGFILE" 2>&1; exit 1; }
 type -P cryptsetup &>/dev/null || { echo -e "$red cryptsetup is not installed. Damn! $none" >> "$LOGFILE" 2>&1; exit 1; }
@@ -124,9 +125,9 @@ Mapper="/dev/mapper/$cryptdev"
 node="/media/$temp_name"
 
 # Get Size of the volume to create . Default is 512 MB
-read -p "Enter size (MB) of the virtual volume to create [default 512] :  " size
+read -p "Enter size (MB) of the virtual volume to create [default 2048] :  " size
 while [[ -z  $size  ]]; do
-    size=512
+    size=2048
 done
 
 # Exit if Size of Volume is invalid.
